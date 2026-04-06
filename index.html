@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Six Flags Prestige Pass Tracker</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="hero">
+        <div>
+          <p class="eyebrow">Responsive Pass Tracker</p>
+          <h1 id="tracker-name">Six Flags Prestige Pass Tracker</h1>
+          <p class="hero-copy">
+            Rebuilt from the Cedar Fair workbook so you can track pass costs,
+            visit value, meals, and break-even progress from a phone or desktop.
+          </p>
+        </div>
+        <div class="hero-panel">
+          <label class="field">
+            <span>Home park</span>
+            <input id="home-park" type="text" />
+          </label>
+          <label class="field">
+            <span>Pass year</span>
+            <input id="pass-year" type="text" />
+          </label>
+          <label class="field">
+            <span>Tracker notes</span>
+            <textarea id="tracker-notes" rows="3"></textarea>
+          </label>
+        </div>
+      </section>
+
+      <section class="summary-grid" id="summary-grid"></section>
+
+      <section class="panel">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Imported Purchases</p>
+            <h2>Pass Costs</h2>
+          </div>
+          <button id="add-purchase" class="button-secondary" type="button">
+            Add Purchase
+          </button>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Park</th>
+                <th>Date</th>
+                <th>Prestige Pass</th>
+                <th>Dining Pass</th>
+                <th>Notes</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="purchase-rows"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Editable Visit Log</p>
+            <h2>Visits and Meal Value</h2>
+          </div>
+          <button id="add-visit" class="button-secondary" type="button">
+            Add Visit
+          </button>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Park</th>
+                <th>Date</th>
+                <th>Admission</th>
+                <th>Dining</th>
+                <th>Parking</th>
+                <th>Bonus Tickets</th>
+                <th>Bring-a-Friend</th>
+                <th>Meals</th>
+                <th>Notes</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="visit-rows"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="panel panel-split">
+        <div>
+          <p class="eyebrow">Park Rollup</p>
+          <h2>Value by Park</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Park</th>
+                  <th>Visits</th>
+                  <th>Spend</th>
+                  <th>Value Used</th>
+                </tr>
+              </thead>
+              <tbody id="park-rollup"></tbody>
+            </table>
+          </div>
+        </div>
+        <div>
+          <p class="eyebrow">Shared Storage</p>
+          <h2>GitHub Sync</h2>
+          <p class="panel-copy">
+            Connect this page to a JSON file in a private GitHub repo. The token
+            stays in this browser, and the tracker can then load and save the
+            same data from your phone or laptop.
+          </p>
+          <div class="github-form">
+            <label class="field">
+              <span>Repo owner</span>
+              <input id="github-owner" type="text" placeholder="your-github-name" />
+            </label>
+            <label class="field">
+              <span>Repo name</span>
+              <input id="github-repo" type="text" placeholder="six-flags-tracker-data" />
+            </label>
+            <label class="field">
+              <span>Branch</span>
+              <input id="github-branch" type="text" placeholder="main" />
+            </label>
+            <label class="field">
+              <span>JSON path in repo</span>
+              <input id="github-path" type="text" placeholder="data/six-flags-pass-tracker.json" />
+            </label>
+            <label class="field">
+              <span>Fine-grained token</span>
+              <input id="github-token" type="password" placeholder="github_pat_..." />
+            </label>
+          </div>
+          <div class="button-row">
+            <button id="save-github-config" class="button-secondary" type="button">
+              Save Connection
+            </button>
+            <button id="load-from-github" class="button-primary" type="button">
+              Load from GitHub
+            </button>
+            <button id="save-to-github" class="button-primary" type="button">
+              Save to GitHub
+            </button>
+            <button id="reset-data" class="button-danger" type="button">
+              Reset to Workbook Seed
+            </button>
+          </div>
+          <pre id="status-box" class="status-box">Ready.</pre>
+        </div>
+      </section>
+    </main>
+
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>

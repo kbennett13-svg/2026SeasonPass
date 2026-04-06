@@ -1,0 +1,292 @@
+:root {
+  color-scheme: light;
+  --bg: #f5efe2;
+  --panel: rgba(255, 252, 245, 0.9);
+  --panel-strong: #fffaf0;
+  --ink: #1c1912;
+  --muted: #655a48;
+  --line: rgba(89, 70, 36, 0.16);
+  --accent: #b44f23;
+  --accent-dark: #7f3514;
+  --accent-soft: rgba(180, 79, 35, 0.12);
+  --danger: #8f2f2b;
+  --shadow: 0 18px 40px rgba(77, 57, 25, 0.12);
+  --radius: 24px;
+  --radius-sm: 14px;
+  --display: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", serif;
+  --body: "Avenir Next", "Segoe UI", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top left, rgba(241, 185, 111, 0.35), transparent 30%),
+    linear-gradient(180deg, #f7f1e2 0%, #efe7d4 100%);
+  color: var(--ink);
+  font-family: var(--body);
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+.app-shell {
+  width: min(1200px, calc(100% - 2rem));
+  margin: 0 auto;
+  padding: 2rem 0 3rem;
+}
+
+.hero,
+.panel,
+.summary-card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(12px);
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  border-radius: calc(var(--radius) + 4px);
+}
+
+.eyebrow {
+  margin: 0 0 0.4rem;
+  color: var(--accent-dark);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+h1,
+h2 {
+  margin: 0;
+  font-family: var(--display);
+  font-weight: 700;
+  line-height: 1;
+}
+
+h1 {
+  font-size: clamp(2.3rem, 4vw, 4.4rem);
+}
+
+h2 {
+  font-size: clamp(1.5rem, 2vw, 2rem);
+}
+
+.hero-copy,
+.panel-copy {
+  max-width: 60ch;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.hero-panel {
+  display: grid;
+  gap: 0.9rem;
+  padding: 1rem;
+  background: var(--panel-strong);
+  border-radius: var(--radius);
+}
+
+.field {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.field span {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.field input,
+.field textarea,
+.table-input {
+  width: 100%;
+  padding: 0.8rem 0.9rem;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: white;
+  color: var(--ink);
+}
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 1.2rem 0;
+}
+
+.summary-card {
+  border-radius: var(--radius-sm);
+  padding: 1rem;
+}
+
+.summary-card p,
+.summary-card span {
+  margin: 0;
+  color: var(--muted);
+}
+
+.summary-card strong {
+  display: block;
+  margin: 0.3rem 0;
+  font-size: 1.8rem;
+  font-family: var(--display);
+}
+
+.panel {
+  margin-top: 1.2rem;
+  padding: 1.3rem;
+  border-radius: var(--radius);
+}
+
+.panel-split {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 1.2rem;
+}
+
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.github-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.8rem;
+  margin-bottom: 1rem;
+}
+
+.button-primary,
+.button-secondary,
+.button-danger,
+.icon-button {
+  border: 0;
+  border-radius: 999px;
+  padding: 0.8rem 1.05rem;
+  cursor: pointer;
+}
+
+.button-primary {
+  background: var(--accent);
+  color: white;
+}
+
+.button-secondary {
+  background: var(--accent-soft);
+  color: var(--accent-dark);
+}
+
+.button-danger {
+  background: rgba(143, 47, 43, 0.12);
+  color: var(--danger);
+}
+
+.icon-button {
+  background: transparent;
+  color: var(--danger);
+  padding-inline: 0;
+}
+
+.table-wrap {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 840px;
+}
+
+th,
+td {
+  padding: 0.8rem 0.6rem;
+  text-align: left;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+}
+
+th {
+  color: var(--muted);
+  font-size: 0.86rem;
+}
+
+.file-button {
+  position: relative;
+  overflow: hidden;
+}
+
+.file-button input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.status-box {
+  min-height: 120px;
+  margin: 1rem 0 0;
+  padding: 1rem;
+  border-radius: var(--radius-sm);
+  background: #201c17;
+  color: #f6e9ce;
+  overflow: auto;
+}
+
+@media (max-width: 1024px) {
+  .hero,
+  .panel-split,
+  .summary-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  .app-shell {
+    width: min(100% - 1rem, 100%);
+    padding-top: 1rem;
+  }
+
+  .hero,
+  .panel-split,
+  .summary-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section-heading {
+    align-items: start;
+    flex-direction: column;
+  }
+
+  .github-form {
+    grid-template-columns: 1fr;
+  }
+
+  h1 {
+    line-height: 1.05;
+  }
+}
